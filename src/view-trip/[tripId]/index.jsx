@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/Service/firebaseConfig';
 import InfoSection from '../components/InfoSection';
-import Hotels from '../components/hotels';
+import Hotels from '../components/Hotels';
 import PlacesToVisit from '../components/PlacesToVisit';
 import Footer from '../components/Footer';
 
