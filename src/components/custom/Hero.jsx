@@ -17,6 +17,8 @@ function Hero() {
         <Link to={'/create-trip'}>
           <Button>Get Started, It's Free</Button>
         </Link>
+
+      <img src='https://res.cloudinary.com/dupwervku/image/upload/v1748022459/landing_Image_formphotoeditor.com_nffvt3.jpg' className='rounded-xl h-[600px] mb-5'/>
     </div>
 
     <div>
