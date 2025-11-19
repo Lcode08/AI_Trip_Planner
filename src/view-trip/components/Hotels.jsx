@@ -24,8 +24,8 @@ function HotelCard({ hotel }) {
 
   return (
     <Link to={'https://www.google.com/maps/search/?api=1&query='+ hotel?.hotelName +","+ hotel.hotelAddress } target='_blank'>
-      <div className='hover:scale-105 transition-all cursor-pointer'>
-        <div className="relative rounded-xl overflow-hidden h-[180px]">
+      <div className='hover:scale-[1.02] transition-all cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg overflow-hidden h-full'>
+        <div className="relative rounded-t-lg overflow-hidden h-[180px] sm:h-[200px]">
           <img 
             src={photoUrl} 
             className='w-full h-full object-cover'
@@ -36,11 +36,13 @@ function HotelCard({ hotel }) {
             }}
           />
         </div>
-        <div className='my-2'>
-          <h2 className='font-medium'>{hotel?.hotelName}</h2>
-          <h2 className='text-xs text-gray-500'>📍{hotel?.hotelAddress}</h2>
-          <h2 className='text-sm flex flex-col gap-2'>💰 {hotel?.price}</h2>
-          <h2 className='text-sm flex flex-col gap-2'>⭐ {hotel?.rating}</h2>
+        <div className='p-3 sm:p-4'>
+          <h2 className='font-semibold text-base sm:text-lg text-gray-800 mb-2 line-clamp-1'>{hotel?.hotelName}</h2>
+          <h2 className='text-xs text-gray-600 mb-2 sm:mb-3 line-clamp-2'>📍{hotel?.hotelAddress}</h2>
+          <div className="flex items-center justify-between">
+            <h2 className='text-xs sm:text-sm font-medium text-green-600'>💰 {hotel?.price}</h2>
+            <h2 className='text-xs sm:text-sm font-medium text-yellow-600'>⭐ {hotel?.rating}</h2>
+          </div>
         </div>
       </div>
     </Link>
@@ -49,10 +51,10 @@ function HotelCard({ hotel }) {
 
 function Hotels({trip}) {
   return (
-    <div>
-        <h2 className="font-bold text-2xl mb-4 text-blue-600">Hotels Recommendation</h2>
+    <div className="mt-6 sm:mt-8">
+        <h2 className="font-bold text-xl sm:text-2xl mb-4 sm:mb-6 text-blue-600">Hotels Recommendation</h2>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6'>
             {trip?.tripData?.hotels?.map((hotel, index) => (
               <HotelCard key={index} hotel={hotel} />
             ))}

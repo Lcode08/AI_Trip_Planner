@@ -25,18 +25,18 @@ function InfoSection({trip}) {
   }
   return (
     <div>
-        <img src={photoUrl} className='h-[340px] w-full object-cover rounded-xl'/>
+        <img src={photoUrl} className='h-[200px] sm:h-[250px] md:h-[300px] lg:h-[340px] w-full object-cover rounded-xl'/>
 
-        <div className='flex justify-between items-center'>
-            <div className='my-5 flex flex-col gap-2'>
-                <h2 className='font-bold text-2xl '>{trip?.userSelection?.location?.label}</h2>
-                <div className='flex gap-5'>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-md'>🗓️ {trip.userSelection?.noOfDays} Days</h2>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-md'>💰 {trip.userSelection?.budget} Budget</h2>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-xs md:text-md'>🥂 No. of Travelers: {trip.userSelection?.Travelers}</h2>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-4 sm:mt-5'>
+            <div className='flex flex-col gap-2 w-full sm:w-auto'>
+                <h2 className='font-bold text-xl sm:text-2xl'>{trip?.userSelection?.location?.label}</h2>
+                <div className='flex flex-wrap gap-2 sm:gap-3 md:gap-5'>
+                    <h2 className='p-1 px-2 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-sm md:text-base whitespace-nowrap'>🗓️ {trip.userSelection?.noOfDays} Days</h2>
+                    <h2 className='p-1 px-2 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-sm md:text-base whitespace-nowrap'>💰 {trip.userSelection?.budget} Budget</h2>
+                    <h2 className='p-1 px-2 sm:px-3 bg-gray-200 rounded-full text-gray-500 text-xs sm:text-sm md:text-base whitespace-nowrap'>🥂 {trip.userSelection?.Travelers}</h2>
                 </div>
             </div>
-            <Button><IoIosSend /></Button>
+            <Button className="w-full sm:w-auto"><IoIosSend className="text-lg sm:text-xl" /></Button>
         </div>
     </div>
   )

@@ -65,24 +65,27 @@ function Header() {
   };
 
   return (
-    <div className='p-3 shadow-sm flex justify-between items-center px-5'>
+    <div className='p-2 sm:p-3 shadow-sm flex justify-between items-center px-3 sm:px-5'>
          <a href="/">
-          <h2 className='text-2xl font-bold text-blue-500 tracking-wide cursor-pointer'>
+          <h2 className='text-lg sm:text-xl md:text-2xl font-bold text-blue-500 tracking-wide cursor-pointer'>
             Trip<span className='text-green-500'>Saathi</span>
           </h2>
         </a>
         <div>
           {user?
-            <div className='flex items-center gap-3'>
-            <a href='/create-trip'>
-              <Button variant="outline" className="rounded-full">+ Create Trip</Button>   
+            <div className='flex items-center gap-1 sm:gap-2 md:gap-3'>
+            <a href='/create-trip' className="hidden sm:block">
+              <Button variant="outline" className="rounded-full text-xs sm:text-sm px-2 sm:px-4">+ Create Trip</Button>   
             </a>
-            <a href='/my-trips'>
-              <Button variant="outline" className="rounded-full">My Trips</Button>   
+            <a href='/create-trip' className="sm:hidden">
+              <Button variant="outline" className="rounded-full text-xs px-2">+</Button>   
+            </a>
+            <a href='/my-trips' className="hidden md:block">
+              <Button variant="outline" className="rounded-full text-xs sm:text-sm px-2 sm:px-4">My Trips</Button>   
             </a>
               <Popover>
                 <PopoverTrigger asChild>
-                  <div className="w-[35px] h-[35px] rounded-full overflow-hidden cursor-pointer" 
+                  <div className="w-[30px] h-[30px] sm:w-[35px] sm:h-[35px] rounded-full overflow-hidden cursor-pointer" 
                        style={{ background: 'transparent', border: 'none', padding: 0 }}>
                     <img 
                       src={user?.picture} 
@@ -96,33 +99,35 @@ function Header() {
                   <h2 className='cursor-pointer' onClick={()=> {
                     googleLogout();
                     localStorage.clear();
-                    window.location.reload();
+                    window.location.href = '/';
                   }}>
                   LogOut</h2>
                 </PopoverContent>
               </Popover>
             </div>
-            : <Button onClick={()=> setOpenDialog(true)}>Sign In</Button>
+            : <Button onClick={()=> setOpenDialog(true)} className="text-xs sm:text-sm px-3 sm:px-4">Sign In</Button>
           }
       
         </div>
-            <Dialog open={openDialog}>
-                      <DialogContent>
+            <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+                      <DialogContent className="sm:max-w-md">
                         <DialogHeader>
-                          <DialogDescription>
-                            <h1 className='text-2xl font-bold text-blue-500 tracking-wide'>
+                          <div className="flex flex-col items-center text-center space-y-4 py-4">
+                            <h1 className='text-3xl font-bold text-blue-500 tracking-wide'>
                               Trip<span className='text-green-500'>Saathi</span>
                             </h1>
-                              <h2 className='font-bold text-lg'>Sign In With Google</h2>
-                              <p>Sign in to the App with Google authentication securely</p>
+                            <div className="space-y-2">
+                              <h2 className='font-bold text-xl text-gray-800'>Sign In With Google</h2>
+                              <p className="text-sm text-gray-600">Sign in to the App with Google authentication securely</p>
+                            </div>
             
                               <Button 
                                   onClick={login}
-                                  className="w-full mt-5 flex gap-4 items-center h-[40px]">
-                                  <FcGoogle className='h-12 w-12'/>
-                                  Sign in with Google
+                                  className="w-full mt-4 flex gap-3 items-center justify-center h-12 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all">
+                                  <FcGoogle className='h-6 w-6'/>
+                                  <span>Sign in with Google</span>
                               </Button>
-                          </DialogDescription>
+                          </div>
                         </DialogHeader>
                       </DialogContent>
                     </Dialog>

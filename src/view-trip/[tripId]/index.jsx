@@ -35,19 +35,21 @@ function ViewTrip() {
   }
 
   return (
-    <div className='p-10 md:px-20 lg:px-44 xl:px-56 '>
-        {/* information Section  */}
-        <InfoSection trip={trip}/>
+    <>
+      <div className='px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 2xl:px-44 py-6 sm:py-8 md:py-10'>
+          {/* information Section  */}
+          <InfoSection trip={trip}/>
 
-        {/* Recommended Hotels section  */}
-        <Hotels trip={trip}/>
+          {/* Recommended Hotels section  */}
+          <Hotels trip={trip}/>
 
-        {/* Daily plans for places to visit  */}
-        <PlacesToVisit trip={trip}/>
-
-        {/* Footer Section  */}
-        <Footer trip={trip}/>
-    </div>
+          {/* Daily plans for places to visit  */}
+          <PlacesToVisit trip={trip}/>
+      </div>
+      
+      {/* Footer Section - Full Width */}
+      <Footer trip={trip}/>
+    </>
   )
 }
 
